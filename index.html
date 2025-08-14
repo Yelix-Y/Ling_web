@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="专业设计师个人作品集 - 专注于品牌视觉与图案创新">
-    <title>设计师作品集 | 创意视觉设计</title>
+    <meta name="description" content="蜗牛小居">
+    <title>设计师|教授|Ling_web</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,23 +13,23 @@
         <div class="navbar__container">
             <!-- Logo/品牌名 -->
             <div class="navbar__logo">
-                <a href="#home">创意设计师</a>
+                <a href="index.html">Designer:Yali Ling</a>
             </div>
             
             <!-- 桌面端导航菜单 -->
             <nav class="navbar__menu">
                 <ul class="navbar__list">
                     <li class="navbar__item">
-                        <a href="#home" class="navbar__link navbar__link--active">首页</a>
+                        <a href="index.html" class="navbar__link navbar__link--active">首页</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="#portfolio" class="navbar__link">作品集</a>
+                        <a href="portfolio.html" class="navbar__link">作品集</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="#about" class="navbar__link">关于我</a>
+                        <a href="about.html" class="navbar__link">关于我</a>
                     </li>
                     <li class="navbar__item">
-                        <a href="#contact" class="navbar__link">联系我</a>
+                        <a href="contact.html" class="navbar__link">联系我</a>
                     </li>
                 </ul>
             </nav>
@@ -45,16 +45,56 @@
 
     <!-- 主要内容区域 -->
     <main>
-        <!-- 首页/英雄区域 -->
+        <!-- 首页/轮播区域 -->
         <section class="hero" id="home">
-            <div class="hero__background">
-                <img src="https://placeholder.co/1920x1080/6366f1/ffffff?text=创意设计作品" alt="设计师代表作品背景" class="hero__bg-image">
-                <div class="hero__overlay"></div>
-            </div>
-            <div class="hero__content">
-                <h1 class="hero__title">专注于品牌视觉与图案创新的设计师</h1>
-                <p class="hero__subtitle">用创意点亮品牌，用设计传达价值</p>
-                <button class="hero__cta" id="viewPortfolio">查看我的作品</button>
+            <div class="carousel">
+                <!-- 轮播图片容器 -->
+                <div class="carousel__container">
+                    <div class="carousel__slide carousel__slide--active">
+                        <img src="https://placeholder.co/1920x1080/6366f1/ffffff?text=创意设计作品1" alt="创意设计作品1" class="carousel__image">
+                        <div class="carousel__overlay"></div>
+                        <div class="carousel__content">
+                            <h1 class="carousel__title">蜗牛小居</h1>
+                            <p class="carousel__subtitle">蜗牛系列作品</p>
+                            <button class="carousel__cta" id="viewPortfolio">查看蜗牛小居</button>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel__slide">
+                        <img src="https://placeholder.co/1920x1080/e74c3c/ffffff?text=创意设计作品2" alt="创意设计作品2" class="carousel__image">
+                        <div class="carousel__overlay"></div>
+                        <div class="carousel__content">
+                            <h1 class="carousel__title">服装设计系列</h1>
+                            <p class="carousel__subtitle">设计的服装</p>
+                            <button class="carousel__cta" id="viewPortfolio2">查看</button>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel__slide">
+                        <img src="https://placeholder.co/1920x1080/2ecc71/ffffff?text=创意设计作品3" alt="创意设计作品3" class="carousel__image">
+                        <div class="carousel__overlay"></div>
+                        <div class="carousel__content">
+                            <h1 class="carousel__title">艺术设计其他作品</h1>
+                            <p class="carousel__subtitle">设计，改变一切</p>
+                            <button class="carousel__cta" id="viewPortfolio3">查看</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 左右控制按钮 -->
+                <button class="carousel__btn carousel__btn--prev" id="carouselPrev">
+                    <span class="carousel__arrow">‹</span>
+                </button>
+                <button class="carousel__btn carousel__btn--next" id="carouselNext">
+                    <span class="carousel__arrow">›</span>
+                </button>
+                
+                <!-- 指示器 -->
+                <div class="carousel__indicators">
+                    <div class="carousel__indicator carousel__indicator--active" data-slide="0"></div>
+                    <div class="carousel__indicator" data-slide="1"></div>
+                    <div class="carousel__indicator" data-slide="2"></div>
+                </div>
             </div>
         </section>
 
@@ -71,8 +111,8 @@
                             <img src="https://placeholder.co/600x400/ff6b6b/ffffff?text=品牌标识设计" alt="现代品牌标识设计项目" class="portfolio__image">
                             <div class="portfolio__overlay">
                                 <div class="portfolio__info">
-                                    <h3 class="portfolio__title">现代品牌标识</h3>
-                                    <p class="portfolio__category">品牌设计</p>
+                                    <h3 class="portfolio__title">蜗牛小居</h3>
+                                    <p class="portfolio__category">蜗牛小居</p>
                                 </div>
                             </div>
                         </div>
@@ -84,8 +124,8 @@
                             <img src="https://placeholder.co/600x400/4ecdc4/ffffff?text=包装设计系列" alt="产品包装设计系列" class="portfolio__image">
                             <div class="portfolio__overlay">
                                 <div class="portfolio__info">
-                                    <h3 class="portfolio__title">产品包装系列</h3>
-                                    <p class="portfolio__category">包装设计</p>
+                                    <h3 class="portfolio__title">蜗牛小居</h3>
+                                    <p class="portfolio__category">蜗牛小居</p>
                                 </div>
                             </div>
                         </div>
@@ -97,8 +137,8 @@
                             <img src="https://placeholder.co/600x400/45b7d1/ffffff?text=响应式网站" alt="响应式网站设计" class="portfolio__image">
                             <div class="portfolio__overlay">
                                 <div class="portfolio__info">
-                                    <h3 class="portfolio__title">响应式网站</h3>
-                                    <p class="portfolio__category">网页设计</p>
+                                    <h3 class="portfolio__title">蜗牛小居</h3>
+                                    <p class="portfolio__category">蜗牛小居</p>
                                 </div>
                             </div>
                         </div>
@@ -110,8 +150,8 @@
                             <img src="https://placeholder.co/600x400/f39c12/ffffff?text=海报设计" alt="创意海报设计" class="portfolio__image">
                             <div class="portfolio__overlay">
                                 <div class="portfolio__info">
-                                    <h3 class="portfolio__title">创意海报</h3>
-                                    <p class="portfolio__category">平面设计</p>
+                                    <h3 class="portfolio__title">蜗牛小居</h3>
+                                    <p class="portfolio__category">蜗牛小居蜗牛小居</p>
                                 </div>
                             </div>
                         </div>
@@ -123,8 +163,8 @@
                             <img src="https://placeholder.co/600x400/9b59b6/ffffff?text=移动应用界面" alt="移动应用UI设计" class="portfolio__image">
                             <div class="portfolio__overlay">
                                 <div class="portfolio__info">
-                                    <h3 class="portfolio__title">移动应用界面</h3>
-                                    <p class="portfolio__category">UI设计</p>
+                                    <h3 class="portfolio__title">蜗牛小居</h3>
+                                    <p class="portfolio__category">蜗牛小居</p>
                                 </div>
                             </div>
                         </div>
@@ -136,8 +176,8 @@
                             <img src="https://placeholder.co/600x400/e74c3c/ffffff?text=插画作品" alt="原创插画作品" class="portfolio__image">
                             <div class="portfolio__overlay">
                                 <div class="portfolio__info">
-                                    <h3 class="portfolio__title">原创插画</h3>
-                                    <p class="portfolio__category">插画设计</p>
+                                    <h3 class="portfolio__title">蜗牛小居</h3>
+                                    <p class="portfolio__category">蜗牛小居</p>
                                 </div>
                             </div>
                         </div>
@@ -157,12 +197,10 @@
                     <div class="about__text">
                         <h3 class="about__title">热爱设计，专注创新</h3>
                         <p class="about__description">
-                            我是一名拥有5年经验的视觉设计师，专注于品牌视觉识别、包装设计和数字媒体设计。
-                            我相信好的设计不仅要美观，更要能够有效传达品牌价值和用户体验。
+                            我是一名服装设计师
                         </p>
                         <p class="about__description">
-                            在我的设计理念中，简洁与功能性并重，每一个项目都力求在视觉冲击力和实用性之间找到完美平衡。
-                            我善于倾听客户需求，将抽象的想法转化为具体的视觉解决方案。
+                            我的设计理念
                         </p>
                         
                         <!-- 技能列表 -->
@@ -204,22 +242,22 @@
         <section class="contact" id="contact">
             <div class="container">
                 <h2 class="section__title">联系我</h2>
-                <p class="section__subtitle">让我们一起创造精彩的设计作品</p>
+                <p class="section__subtitle">一起创造艺术</p>
                 
                 <div class="contact__content">
                     <div class="contact__info">
                         <h3 class="contact__title">联系方式</h3>
                         <div class="contact__item">
                             <span class="contact__icon">📧</span>
-                            <span class="contact__text">designer@example.com</span>
+                            <span class="contact__text">w1hilovemusic1226@outlook.com</span>
                         </div>
                         <div class="contact__item">
                             <span class="contact__icon">📱</span>
-                            <span class="contact__text">+86 138 0000 0000</span>
+                            <span class="contact__text">+86 13140038726</span>
                         </div>
                         <div class="contact__item">
                             <span class="contact__icon">📍</span>
-                            <span class="contact__text">中国，上海</span>
+                            <span class="contact__text">中国，浙江省，杭州，中国美术学院</span>
                         </div>
                         
                         <!-- 社交媒体链接 -->
@@ -258,7 +296,7 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <p class="footer__text">&copy; 2025 创意设计师. 保留所有权利.</p>
+            <p class="footer__text">&copy; 2025- 凌雅丽个人工作室/网站运营-魏亿恒. 保留所有权利.</p>
         </div>
     </footer>
 
