@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="凌雅丽设计师作品集 - 品牌设计、包装设计、网页设计等优秀作品展示">
+    <title>作品集 | 凌雅丽设计师</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="navbar" id="navbar">
+        <div class="navbar__container">
+            <!-- Logo/品牌名 -->
+            <div class="navbar__logo">
+                <a href="index.html">Designer:Yali Ling</a>
+            </div>
+            
+            <!-- 桌面端导航菜单 -->
+            <nav class="navbar__menu">
+                <ul class="navbar__list">
+                    <li class="navbar__item">
+                        <a href="index.html" class="navbar__link">首页</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="portfolio.html" class="navbar__link navbar__link--active">作品集</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="about.html" class="navbar__link">关于我</a>
+                    </li>
+                    <li class="navbar__item">
+                        <a href="contact.html" class="navbar__link">联系我</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- 移动端汉堡菜单按钮 -->
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="portfolio-page">
+        <!-- 页面头部 -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">我的作品集</h1>
+                <p class="page-header__subtitle">每一个作品都承载着独特的创意理念和精湛的设计技艺</p>
+            </div>
+        </section>
+
+        <!-- 作品分类筛选 -->
+        <section class="portfolio-filter">
+            <div class="container">
+                <div class="filter-tabs">
+                    <button class="filter-tab filter-tab--active" data-category="all">全部作品</button>
+                    <button class="filter-tab" data-category="brand">品牌设计</button>
+                    <button class="filter-tab" data-category="package">包装设计</button>
+                    <button class="filter-tab" data-category="web">网页设计</button>
+                    <button class="filter-tab" data-category="ui">UI设计</button>
+                    <button class="filter-tab" data-category="illustration">插画设计</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 作品展示区域 -->
+        <section class="portfolio-showcase">
+            <div class="container">
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- 品牌设计作品 -->
+                    <div class="portfolio-card" data-category="brand">
+                        <div class="portfolio-card__image-container">
+                            <img src="https://placeholder.co/400x300/ff6b6b/ffffff?text=现代品牌标识设计" alt="现代品牌标识设计" class="portfolio-card__image">
+                            <div class="portfolio-card__overlay">
+                                <div class="portfolio-card__actions">
+                                    <button class="portfolio-card__btn" onclick="openPortfolioModal('brand1')">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <h3 class="portfolio-card__title">现代品牌标识设计</h3>
+                            <p class="portfolio-card__category">品牌设计</p>
+                            <p class="portfolio-card__description">为科技公司打造的现代简约风格品牌标识，体现创新与专业的品牌形象。</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-category="brand">
+                        <div class="portfolio-card__image-container">
+                            <img src="https://placeholder.co/400x300/e74c3c/ffffff?text=餐厅品牌设计" alt="餐厅品牌设计" class="portfolio-card__image">
+                            <div class="portfolio-card__overlay">
+                                <div class="portfolio-card__actions">
+                                    <button class="portfolio-card__btn" onclick="openPortfolioModal('brand2')">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <h3 class="portfolio-card__title">精品餐厅品牌设计</h3>
+                            <p class="portfolio-card__category">品牌设计</p>
+                            <p class="portfolio-card__description">融合传统与现代元素的餐厅品牌设计，营造温馨优雅的用餐氛围。</p>
+                        </div>
+                    </div>
+
+                    <!-- 包装设计作品 -->
+                    <div class="portfolio-card" data-category="package">
+                        <div class="portfolio-card__image-container">
+                            <img src="https://placeholder.co/400x300/4ecdc4/ffffff?text=茶叶包装设计" alt="茶叶包装设计" class="portfolio-card__image">
+                            <div class="portfolio-card__overlay">
+                                <div class="portfolio-card__actions">
+                                    <button class="portfolio-card__btn" onclick="openPortfolioModal('package1')">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <h3 class="portfolio-card__title">高端茶叶包装设计</h3>
+                            <p class="portfolio-card__category">包装设计</p>
+                            <p class="portfolio-card__description">以中国传统文化为灵感，设计的高端茶叶包装，体现产品的品质与文化底蕴。</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-category="package">
+                        <div class="portfolio-card__image-container">
+                            <img src="https://placeholder.co/400x300/f39c12/ffffff?text=化妆品包装" alt="化妆品包装设计" class="portfolio-card__image">
+                            <div class="portfolio-card__overlay">
+                                <div class="portfolio-card__actions">
+                                    <button class="portfolio-card__btn" onclick="openPortfolioModal('package2')">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <h3 class="portfolio-card__title">奢华化妆品包装</h3>
+                            <p class="portfolio-card__category">包装设计</p>
+                            <p class="portfolio-card__description">简约而不失优雅的化妆品包装设计，突出产品的高端定位和品牌特色。</p>
+                        </div>
+                    </div>
+
+                    <!-- 网页设计作品 -->
+                    <div class="portfolio-card" data-category="web">
+                        <div class="portfolio-card__image-container">
+                            <img src="https://placeholder.co/400x300/45b7d1/ffffff?text=企业官网设计" alt="企业官网设计" class="portfolio-card__image">
+                            <div class="portfolio-card__overlay">
+                                <div class="portfolio-card__actions">
+                                    <button class="portfolio-card__btn" onclick="openPortfolioModal('web1')">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <h3 class="portfolio-card__title">企业官网设计</h3>
+                            <p class="portfolio-card__category">网页设计</p>
+                            <p class="portfolio-card__description">响应式企业官网设计，注重用户体验和品牌形象的完美融合。</p>
+                        </div>
+                    </div>
+
+                    <!-- UI设计作品 -->
+                    <div class="portfolio-card" data-category="ui">
+                        <div class="portfolio-card__image-container">
+                            <img src="https://placeholder.co/400x300/9b59b6/ffffff?text=移动应用界面" alt="移动应用UI设计" class="portfolio-card__image">
+                            <div class="portfolio-card__overlay">
+                                <div class="portfolio-card__actions">
+                                    <button class="portfolio-card__btn" onclick="openPortfolioModal('ui1')">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <h3 class="portfolio-card__title">购物应用界面设计</h3>
+                            <p class="portfolio-card__category">UI设计</p>
+                            <p class="portfolio-card__description">直观易用的购物应用界面设计，提升用户购物体验和转化率。</p>
+                        </div>
+                    </div>
+
+                    <!-- 插画设计作品 -->
+                    <div class="portfolio-card" data-category="illustration">
+                        <div class="portfolio-card__image-container">
+                            <img src="https://placeholder.co/400x300/2ecc71/ffffff?text=商业插画" alt="商业插画作品" class="portfolio-card__image">
+                            <div class="portfolio-card__overlay">
+                                <div class="portfolio-card__actions">
+                                    <button class="portfolio-card__btn" onclick="openPortfolioModal('illustration1')">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <h3 class="portfolio-card__title">商业插画系列</h3>
+                            <p class="portfolio-card__category">插画设计</p>
+                            <p class="portfolio-card__description">为品牌宣传打造的插画作品，风格独特，富有创意表现力。</p>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-category="illustration">
+                        <div class="portfolio-card__image-container">
+                            <img src="https://placeholder.co/400x300/e67e22/ffffff?text=儿童绘本插画" alt="儿童绘本插画" class="portfolio-card__image">
+                            <div class="portfolio-card__overlay">
+                                <div class="portfolio-card__actions">
+                                    <button class="portfolio-card__btn" onclick="openPortfolioModal('illustration2')">查看详情</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-card__content">
+                            <h3 class="portfolio-card__title">儿童绘本插画</h3>
+                            <p class="portfolio-card__category">插画设计</p>
+                            <p class="portfolio-card__description">充满想象力的儿童绘本插画，色彩丰富，富有童趣和教育意义。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目统计 -->
+        <section class="portfolio-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">完成项目</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">合作客户</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">设计领域</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">客户满意度</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__text">&copy; 2025 凌雅丽个人工作室. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- 作品详情模态窗口 -->
+    <div class="modal" id="portfolioDetailModal">
+        <div class="modal__content modal__content--large">
+            <span class="modal__close" id="modalClose">&times;</span>
+            <div class="modal__body">
+                <div class="modal__image-container">
+                    <img src="" alt="" class="modal__image" id="modalImage">
+                </div>
+                <div class="modal__info">
+                    <h3 class="modal__title" id="modalTitle"></h3>
+                    <p class="modal__category" id="modalCategory"></p>
+                    <p class="modal__description" id="modalDescription"></p>
+                    <div class="modal__details" id="modalDetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>
