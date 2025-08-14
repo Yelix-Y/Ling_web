@@ -12,13 +12,130 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalClose = document.getElementById('modalClose');
     const contactForm = document.getElementById('contactForm');
 
+    // === 轮播图功能 ===
+    const carousel = {
+        slides: document.querySelectorAll('.carousel__slide'),
+        indicators: document.querySelectorAll('.carousel__indicator'),
+        prevBtn: document.getElementById('carouselPrev'),
+        nextBtn: document.getElementById('carouselNext'),
+        currentSlide: 0,
+        totalSlides: 3,
+        autoPlayTimer: null,
+        autoPlayInterval: 8000, // 8秒自动切换
+
+        // 初始化轮播
+        init() {
+            this.bindEvents();
+            this.startAutoPlay();
+        },
+
+        // 绑定事件
+        bindEvents() {
+            // 检查按钮是否存在，避免错误
+            if (this.prevBtn) {
+                this.prevBtn.addEventListener('click', () => {
+                    this.goToPrevSlide();
+                });
+            }
+
+            if (this.nextBtn) {
+                this.nextBtn.addEventListener('click', () => {
+                    this.goToNextSlide();
+                });
+            }
+
+            // 指示器点击事件
+            this.indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    this.goToSlide(index);
+                });
+            });
+
+            // 键盘控制支持
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    this.goToPrevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    this.goToNextSlide();
+                }
+            });
+
+            // 鼠标悬停时暂停自动播放
+            const carouselContainer = document.querySelector('.carousel');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', () => {
+                    this.stopAutoPlay();
+                });
+
+                carouselContainer.addEventListener('mouseleave', () => {
+                    this.startAutoPlay();
+                });
+            }
+        },
+
+        // 切换到指定幻灯片
+        goToSlide(slideIndex) {
+            // 移除当前活动状态
+            this.slides[this.currentSlide].classList.remove('carousel__slide--active');
+            this.indicators[this.currentSlide].classList.remove('carousel__indicator--active');
+
+            // 更新当前幻灯片索引
+            this.currentSlide = slideIndex;
+
+            // 添加新的活动状态
+            this.slides[this.currentSlide].classList.add('carousel__slide--active');
+            this.indicators[this.currentSlide].classList.add('carousel__indicator--active');
+
+            // 重新启动自动播放
+            this.restartAutoPlay();
+        },
+
+        // 上一张幻灯片
+        goToPrevSlide() {
+            const prevIndex = this.currentSlide === 0 ? this.totalSlides - 1 : this.currentSlide - 1;
+            this.goToSlide(prevIndex);
+        },
+
+        // 下一张幻灯片
+        goToNextSlide() {
+            const nextIndex = this.currentSlide === this.totalSlides - 1 ? 0 : this.currentSlide + 1;
+            this.goToSlide(nextIndex);
+        },
+
+        // 开始自动播放
+        startAutoPlay() {
+            this.autoPlayTimer = setInterval(() => {
+                this.goToNextSlide();
+            }, this.autoPlayInterval);
+        },
+
+        // 停止自动播放
+        stopAutoPlay() {
+            if (this.autoPlayTimer) {
+                clearInterval(this.autoPlayTimer);
+                this.autoPlayTimer = null;
+            }
+        },
+
+        // 重新启动自动播放
+        restartAutoPlay() {
+            this.stopAutoPlay();
+            this.startAutoPlay();
+        }
+    };
+
+    // 初始化轮播组件（仅在首页存在轮播元素时）
+    if (document.querySelector('.carousel')) {
+        carousel.init();
+    }
+
     // 导航栏滚动效果
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            navbar.style.background = '#0D132D';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.background = '#0D132D';
             navbar.style.boxShadow = 'none';
         }
     });
@@ -32,39 +149,66 @@ document.addEventListener('DOMContentLoaded', function() {
     // 导航链接点击事件
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
             
-            // 移除所有活动状态
-            navLinks.forEach(l => l.classList.remove('navbar__link--active'));
-            // 添加当前活动状态
-            this.classList.add('navbar__link--active');
-
-            // 获取目标section
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                // 平滑滚动到目标section
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            // 如果是外部链接（指向其他HTML文件），允许默认行为
+            if (href.endsWith('.html') || href.startsWith('http')) {
+                // 关闭移动端菜单
+                navbarMenu.classList.remove('navbar__menu--active');
+                mobileMenu.classList.remove('navbar__toggle--active');
+                return; // 允许默认的页面跳转
             }
+            
+            // 只有锚点链接才阻止默认行为并进行页面内滚动
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                
+                // 移除所有活动状态
+                navLinks.forEach(l => l.classList.remove('navbar__link--active'));
+                // 添加当前活动状态
+                this.classList.add('navbar__link--active');
 
-            // 关闭移动端菜单
-            navbarMenu.classList.remove('navbar__menu--active');
-            mobileMenu.classList.remove('navbar__toggle--active');
+                // 获取目标section
+                const targetSection = document.querySelector(href);
+                
+                if (targetSection) {
+                    // 平滑滚动到目标section
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+
+                // 关闭移动端菜单
+                navbarMenu.classList.remove('navbar__menu--active');
+                mobileMenu.classList.remove('navbar__toggle--active');
+            }
         });
     });
 
     // 查看作品按钮点击事件
-    viewPortfolioBtn.addEventListener('click', function() {
-        const portfolioSection = document.getElementById('portfolio');
-        portfolioSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+    if (viewPortfolioBtn) {
+        viewPortfolioBtn.addEventListener('click', function() {
+            // 跳转到作品集页面
+            window.location.href = 'portfolio.html';
         });
-    });
+    }
+
+    // 轮播中的其他按钮点击事件
+    const viewPortfolioBtn2 = document.getElementById('viewPortfolio2');
+    const viewPortfolioBtn3 = document.getElementById('viewPortfolio3');
+
+    if (viewPortfolioBtn2) {
+        viewPortfolioBtn2.addEventListener('click', function() {
+            window.location.href = 'portfolio.html';
+        });
+    }
+
+    if (viewPortfolioBtn3) {
+        viewPortfolioBtn3.addEventListener('click', function() {
+            window.location.href = 'portfolio.html';
+        });
+    }
 
     // 滚动时高亮当前导航项
     window.addEventListener('scroll', function() {
